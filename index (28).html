@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacific Painting LLC | Premium Painting & Property Care in Salem, OR</title>
+<meta name="description" content="Pacific Painting LLC delivers professional interior & exterior painting, pressure washing and drywall repair in Salem, OR, with careful preparation and lasting results.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* =============================================================
+   PACIFIC PAINTING LLC — DESIGN TOKENS
+   ============================================================= */
+:root{
+  --bg:            #0f1214;
+  --bg-alt:        #14181b;
+  --surface:       #191e21;
+  --surface-2:     #20262a;
+  --line:          rgba(242,239,233,0.10);
+  --line-strong:   rgba(242,239,233,0.18);
+  --text:          #f3efe7;
+  --text-dim:      #cfc9be;
+  --muted:         #9aa1a1;
+  --brass:         #c79a4b;
+  --brass-light:   #e3bf7d;
+  --sage:          #7c8a72;
+  --sage-light:    #a4b096;
+  --radius:        3px;
+  --maxw:          1180px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Manrope',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  line-height:1.15;
+  margin:0 0 .5em;
+  letter-spacing:.2px;
+  color:var(--text);
+}
+p{margin:0 0 1em;color:var(--text-dim);}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+::selection{background:var(--brass);color:#171313;}
+::-moz-selection{background:var(--brass);color:#171313;}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.section{padding:100px 0;}
+.section-tight{padding:72px 0;}
+.section-alt{background:var(--bg-alt);}
+.divider{width:56px;height:2px;background:var(--brass);margin:0 0 22px;}
+.divider.center{margin:0 auto 22px;}
+.kicker{color:var(--sage-light);font-size:.85rem;letter-spacing:.4px;margin:0 0 8px;font-weight:600;}
+.lede{color:var(--muted);max-width:620px;font-size:1.05rem;}
+.center-lede{margin-left:auto;margin-right:auto;text-align:center;}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 30px;border-radius:var(--radius);
+  font-weight:700;font-size:.95rem;border:1px solid transparent;
+  transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--brass);color:#171313;}
+.btn-primary:hover{background:var(--brass-light);transform:translateY(-2px);}
+.btn-outline{border-color:var(--line-strong);color:var(--text);background:transparent;}
+.btn-outline:hover{border-color:var(--brass);color:var(--brass-light);transform:translateY(-2px);}
+.btn-ghost{color:var(--brass-light);gap:8px;padding:0;font-weight:700;}
+.btn-ghost i{transition:transform .25s ease;}
+.btn-ghost:hover i{transform:translateX(4px);}
+.btn-sm{padding:11px 20px;font-size:.85rem;}
+
+/* =============================================================
+   INTRO / DIGITAL LOADER
+   ============================================================= */
+#loader{
+  position:fixed;inset:0;z-index:9999;background:#0b0d0e;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  transition:opacity .7s ease, visibility .7s ease;
+}
+#loader.hide{opacity:0;visibility:hidden;pointer-events:none;}
+.loader-mark{display:flex;align-items:center;gap:16px;}
+.loader-logo{
+  width:56px;height:56px;object-fit:contain;
+  filter:drop-shadow(0 0 14px rgba(199,154,75,.35));
+  animation:loaderPulse 1.6s ease-in-out infinite;
+}
+@keyframes loaderPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+.loader-text{
+  font-family:'Fraunces',serif;font-size:1.6rem;color:var(--text);
+  letter-spacing:.5px;position:relative;overflow:hidden;white-space:nowrap;
+}
+.loader-text .type{
+  display:inline-block;overflow:hidden;white-space:nowrap;border-right:2px solid var(--brass);
+  animation:typing 1.6s steps(20,end) forwards, blink .75s step-end infinite;
+  max-width:0;
+}
+@keyframes typing{from{max-width:0;}to{max-width:320px;}}
+@keyframes blink{50%{border-color:transparent;}}
+.loader-bar{width:180px;height:2px;background:var(--line);margin-top:26px;position:relative;overflow:hidden;border-radius:2px;}
+.loader-bar::after{
+  content:'';position:absolute;left:-40%;top:0;bottom:0;width:40%;
+  background:linear-gradient(90deg,transparent,var(--brass),transparent);
+  animation:sweep 1.4s ease-in-out infinite;
+}
+@keyframes sweep{0%{left:-40%;}100%{left:100%;}}
+
+/* =============================================================
+   HEADER
+   ============================================================= */
+.topbar{
+  background:var(--bg);border-bottom:1px solid var(--line);
+  font-size:.82rem;color:var(--muted);
+}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:9px 28px;flex-wrap:wrap;gap:6px;}
+.topbar a{color:var(--muted);}
+.topbar a:hover{color:var(--brass-light);}
+.topbar .t-item{display:inline-flex;align-items:center;gap:7px;}
+.topbar .t-item + .t-item{margin-left:20px;}
+.topbar i{color:var(--brass);}
+
+header.site-header{
+  position:sticky;top:0;z-index:500;
+  background:rgba(15,18,20,.88);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-row{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;gap:24px;}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand img{height:52px;width:auto;max-width:140px;object-fit:contain;}
+.brand-name{display:flex;flex-direction:column;line-height:1.1;}
+.brand-name strong{font-family:'Fraunces',serif;font-size:1.28rem;color:var(--text);letter-spacing:.2px;}
+.brand-name span{font-size:.72rem;color:var(--sage-light);letter-spacing:1px;text-transform:uppercase;}
+
+nav.main-nav{display:flex;align-items:center;gap:34px;}
+nav.main-nav a{
+  font-size:.95rem;font-weight:600;color:var(--text-dim);position:relative;padding:6px 0;
+  transition:color .2s ease;
+}
+nav.main-nav a::after{
+  content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--brass);
+  transition:width .25s ease;
+}
+nav.main-nav a:hover{color:var(--text);}
+nav.main-nav a:hover::after,nav.main-nav a.active::after{width:100%;}
+nav.main-nav a.active{color:var(--brass-light);}
+
+.nav-cta{display:flex;align-items:center;gap:18px;}
+.nav-phone{display:flex;align-items:center;gap:9px;font-weight:700;color:var(--text);font-size:.95rem;}
+.nav-phone i{color:var(--brass);}
+.burger{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;}
+
+@media(max-width:960px){
+  nav.main-nav{
+    position:fixed;top:0;right:-100%;width:78%;max-width:320px;height:100vh;
+    background:var(--bg-alt);flex-direction:column;justify-content:center;align-items:flex-start;
+    padding:40px;gap:26px;transition:right .35s ease;border-left:1px solid var(--line);
+  }
+  nav.main-nav.open{right:0;}
+  .nav-phone{display:none;}
+  .burger{display:block;}
+}
+
+/* =============================================================
+   HERO
+   ============================================================= */
+.hero{position:relative;overflow:hidden;min-height:86vh;display:flex;align-items:center;}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:linear-gradient(100deg, rgba(10,12,13,.94) 30%, rgba(10,12,13,.55) 65%, rgba(10,12,13,.25) 100%), var(--img) center/cover no-repeat;
+  animation:kenburns 22s ease-in-out infinite alternate;
+}
+@keyframes kenburns{from{transform:scale(1);}to{transform:scale(1.08);}}
+.hero-inner{position:relative;z-index:1;padding:120px 0 90px;max-width:640px;}
+.hero-inner .kicker{color:var(--brass-light);}
+.hero-inner h1{font-size:clamp(2.3rem,4.6vw,3.6rem);}
+.hero-inner p.lede{color:var(--text-dim);font-size:1.12rem;}
+.hero-actions{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;}
+.hero-stats{display:flex;gap:38px;margin-top:56px;flex-wrap:wrap;}
+.hero-stats div strong{display:block;font-family:'Fraunces',serif;font-size:1.7rem;color:var(--brass-light);}
+.hero-stats div span{font-size:.82rem;color:var(--muted);}
+
+/* =============================================================
+   SERVICES — GRID
+   ============================================================= */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+@media(max-width:960px){.grid-4{grid-template-columns:repeat(2,1fr);}.grid-3{grid-template-columns:1fr 1fr;}.grid-2{grid-template-columns:1fr;gap:36px;}}
+@media(max-width:620px){.grid-4{grid-template-columns:1fr;}.grid-3{grid-template-columns:1fr;}}
+
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:46px;flex-wrap:wrap;}
+
+.svc-card{
+  background:var(--surface);border:1px solid var(--line);border-top:2px solid var(--brass);
+  border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .3s ease, border-color .3s ease;
+}
+.svc-card:hover{transform:translateY(-6px);border-color:var(--line-strong);}
+.svc-card .thumb{height:190px;overflow:hidden;background:var(--surface-2);}
+.svc-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.svc-card:hover .thumb img{transform:scale(1.06);}
+.svc-card .body{padding:22px 22px 26px;flex:1;display:flex;flex-direction:column;}
+.svc-card h3{font-size:1.2rem;margin-bottom:8px;}
+.svc-card p{font-size:.92rem;flex:1;margin-bottom:16px;}
+.svc-card .learn{font-size:.85rem;font-weight:700;color:var(--brass-light);display:inline-flex;align-items:center;gap:7px;}
+.svc-card .learn i{font-size:.75rem;transition:transform .25s ease;}
+.svc-card:hover .learn i{transform:translateX(4px);}
+
+.explore-wrap{text-align:center;margin-top:48px;}
+
+/* Why choose / feature list */
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+@media(max-width:960px){.feat-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:620px){.feat-grid{grid-template-columns:1fr;}}
+.feat{padding:26px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);}
+.feat i{color:var(--brass);font-size:1.3rem;margin-bottom:14px;display:block;}
+.feat h4{font-size:1.02rem;margin-bottom:8px;}
+.feat p{font-size:.88rem;margin:0;}
+
+/* Process */
+.process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+@media(max-width:900px){.process-row{grid-template-columns:1fr 1fr;gap:30px;}}
+@media(max-width:560px){.process-row{grid-template-columns:1fr;}}
+.process-step{padding:0 26px 0 0;position:relative;}
+.process-step .num{
+  font-family:'Fraunces',serif;font-size:2.2rem;color:transparent;
+  -webkit-text-stroke:1px var(--brass);margin-bottom:14px;display:block;
+}
+.process-step h4{font-size:1.05rem;}
+.process-step p{font-size:.88rem;}
+
+/* Testimonials */
+.review-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 26px;height:100%;display:flex;flex-direction:column;
+}
+.review-stars{color:var(--brass);margin-bottom:14px;font-size:.85rem;letter-spacing:2px;}
+.review-card p{font-style:italic;color:var(--text-dim);flex:1;}
+.review-who{display:flex;align-items:center;gap:12px;margin-top:16px;}
+.review-avatar{
+  width:38px;height:38px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;color:var(--brass-light);font-size:.9rem;
+}
+.review-who strong{display:block;font-size:.88rem;color:var(--text);}
+.review-who span{font-size:.75rem;color:var(--muted);}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{
+  width:100%;text-align:left;background:none;border:none;color:var(--text);
+  padding:22px 0;font-family:'Fraunces',serif;font-size:1.08rem;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.faq-q i{color:var(--brass);transition:transform .3s ease;flex-shrink:0;}
+.faq-item.open .faq-q i{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-item.open .faq-a{max-height:220px;}
+.faq-a p{padding-bottom:22px;margin:0;font-size:.94rem;}
+
+/* CTA banner */
+.cta-band{
+  background:linear-gradient(120deg,var(--surface-2),var(--bg-alt));
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  text-align:center;padding:80px 0;
+}
+.cta-band h2{font-size:clamp(1.6rem,3vw,2.3rem);max-width:640px;margin-left:auto;margin-right:auto;}
+.cta-band .hero-actions{justify-content:center;}
+
+/* =============================================================
+   ABOUT PAGE (distinct layout)
+   ============================================================= */
+.about-hero{padding:70px 0 20px;}
+.about-hero .grid-2{align-items:flex-start;}
+.about-portrait{position:relative;}
+.about-portrait img{border-radius:var(--radius);}
+.about-portrait::before{
+  content:'';position:absolute;top:-18px;left:-18px;right:18px;bottom:18px;
+  border:1px solid var(--brass);border-radius:var(--radius);z-index:-1;
+}
+.stat-row{display:flex;gap:34px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap;}
+.stat-row div strong{display:block;font-family:'Fraunces',serif;font-size:2rem;color:var(--brass-light);}
+.stat-row div span{font-size:.8rem;color:var(--muted);}
+
+.vm-block{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+@media(max-width:800px){.vm-block{grid-template-columns:1fr;}}
+.vm-cell{padding:44px 42px;}
+.vm-cell:first-child{border-right:1px solid var(--line);background:var(--surface);}
+@media(max-width:800px){.vm-cell:first-child{border-right:none;border-bottom:1px solid var(--line);}}
+.vm-cell i{color:var(--brass);font-size:1.5rem;margin-bottom:16px;display:block;}
+
+.values-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+@media(max-width:960px){.values-strip{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.values-strip{grid-template-columns:1fr;}}
+.values-strip>div{padding:30px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+.values-strip>div:last-child{border-right:none;}
+.values-strip i{color:var(--sage-light);margin-bottom:12px;display:block;}
+.values-strip h4{font-size:.98rem;}
+.values-strip p{font-size:.85rem;margin:0;}
+
+/* =============================================================
+   SERVICES LISTING PAGE + DETAIL PAGE
+   ============================================================= */
+.svc-list-card{
+  display:grid;grid-template-columns:280px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;background:var(--surface);margin-bottom:22px;
+}
+@media(max-width:760px){.svc-list-card{grid-template-columns:1fr;}}
+.svc-list-card .thumb{height:100%;min-height:200px;overflow:hidden;}
+.svc-list-card .thumb img{width:100%;height:100%;object-fit:cover;}
+.svc-list-card .content{padding:32px 34px;display:flex;flex-direction:column;justify-content:center;}
+.svc-list-card h3{font-size:1.3rem;}
+.svc-list-card .actions{display:flex;gap:14px;margin-top:16px;flex-wrap:wrap;}
+
+.svc-detail-hero{position:relative;min-height:56vh;display:flex;align-items:flex-end;overflow:hidden;}
+.svc-detail-hero .bg{position:absolute;inset:0;background:var(--img) center/cover no-repeat;filter:brightness(.5);}
+.svc-detail-hero .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 5%,transparent 60%);}
+.svc-detail-hero .inner{position:relative;z-index:1;padding:64px 0 48px;}
+.svc-detail-hero h1{font-size:clamp(2rem,4vw,2.9rem);}
+.breadcrumb{font-size:.82rem;color:var(--muted);margin-bottom:14px;}
+.breadcrumb a{color:var(--brass-light);}
+
+.video-frame{
+  position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-strong);
+  aspect-ratio:16/9;background:var(--surface-2);
+}
+.video-frame video,.video-frame img{width:100%;height:100%;object-fit:cover;}
+.video-frame .play-badge{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(10,12,13,.28);
+}
+.video-frame .play-badge i{
+  width:66px;height:66px;border-radius:50%;background:rgba(15,18,20,.55);
+  border:1px solid var(--brass);color:var(--brass-light);
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+}
+.feature-list{list-style:none;margin:0;padding:0;}
+.feature-list li{
+  display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem;color:var(--text-dim);
+}
+.feature-list li i{color:var(--brass);margin-top:3px;}
+
+.related-strip{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap;}
+.related-strip a{
+  padding:9px 18px;border:1px solid var(--line-strong);border-radius:20px;font-size:.85rem;font-weight:600;
+  color:var(--text-dim);transition:all .2s ease;
+}
+.related-strip a:hover,.related-strip a.active{border-color:var(--brass);color:var(--brass-light);}
+
+/* =============================================================
+   GALLERY
+   ============================================================= */
+.gal-grid{columns:3 260px;column-gap:16px;}
+@media(max-width:720px){.gal-grid{columns:2 200px;}}
+.gal-grid figure{margin:0 0 16px;break-inside:avoid;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);cursor:zoom-in;position:relative;}
+.gal-grid img{width:100%;transition:transform .4s ease;}
+.gal-grid figure:hover img{transform:scale(1.05);}
+.gal-cap{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 16px;font-size:.8rem;color:var(--text);
+  background:linear-gradient(0deg,rgba(10,12,13,.85),transparent);opacity:0;transition:opacity .3s ease;
+}
+.gal-grid figure:hover .gal-cap{opacity:1;}
+
+.lightbox{
+  position:fixed;inset:0;background:rgba(8,9,10,.94);z-index:2000;display:none;
+  align-items:center;justify-content:center;padding:40px;
+}
+.lightbox.show{display:flex;}
+.lightbox img{max-width:90vw;max-height:85vh;border-radius:var(--radius);}
+.lightbox .close{position:absolute;top:26px;right:34px;color:var(--text);font-size:1.8rem;background:none;border:none;}
+
+/* =============================================================
+   CONTACT
+   ============================================================= */
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:50px;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.info-card{border:1px solid var(--line);border-radius:var(--radius);padding:14px 0;}
+.info-line{display:flex;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line);}
+.info-line:last-child{border-bottom:none;}
+.info-line i{color:var(--brass);font-size:1.1rem;margin-top:3px;}
+.info-line strong{display:block;font-size:.85rem;color:var(--muted);font-weight:600;margin-bottom:3px;}
+.info-line span{font-size:.98rem;color:var(--text);}
+.map-box{margin-top:24px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.map-box iframe{width:100%;height:280px;border:0;display:block;filter:grayscale(.25) contrast(1.05);}
+
+.form-card{border:1px solid var(--line);border-radius:var(--radius);padding:36px;background:var(--surface);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:560px){.form-row{grid-template-columns:1fr;}}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:7px;font-weight:600;}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--bg-alt);border:1px solid var(--line-strong);border-radius:var(--radius);
+  padding:13px 14px;color:var(--text);font-family:inherit;font-size:.95rem;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brass);}
+.field textarea{resize:vertical;min-height:110px;}
+.form-msg{margin-top:14px;font-size:.88rem;color:var(--sage-light);display:none;}
+.form-msg.show{display:block;}
+
+/* =============================================================
+   FOOTER
+   ============================================================= */
+footer{background:var(--bg-alt);border-top:1px solid var(--line);padding:70px 0 0;}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:50px;}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr;}}
+.foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.foot-brand img{height:42px;width:auto;object-fit:contain;}
+.foot-brand strong{font-family:'Fraunces',serif;font-size:1.15rem;}
+footer h5{font-size:.9rem;letter-spacing:.4px;margin-bottom:18px;color:var(--text);}
+footer ul{list-style:none;margin:0;padding:0;}
+footer li{margin-bottom:11px;}
+footer a{color:var(--muted);font-size:.9rem;transition:color .2s ease;}
+footer a:hover{color:var(--brass-light);}
+.foot-social{display:flex;gap:12px;margin-top:20px;}
+.foot-social a{
+  width:36px;height:36px;border:1px solid var(--line-strong);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;
+}
+.foot-social a:hover{border-color:var(--brass);}
+.foot-bottom{border-top:1px solid var(--line);padding:22px 0;text-align:center;font-size:.82rem;color:var(--muted);}
+
+/* Page fade */
+.page{display:none;animation:fadeIn .5s ease;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ DIGITAL INTRO LOADER ============ -->
+<div id="loader">
+  <div class="loader-mark">
+    <img class="loader-logo" src="https://pacificpaintingllc.com/wp-content/uploads/2026/09/Pacific-Painting-Logo-e1788376755319.png" alt="Pacific Painting LLC">
+    <div class="loader-text"><span class="type">Pacific Painting LLC</span></div>
+  </div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="t-item"><i class="fa-solid fa-location-dot"></i> Salem, OR &middot; Quality Craftsmanship</span>
+    <span>
+      <span class="t-item"><i class="fa-regular fa-clock"></i> Mon – Sat, 8:00 AM – 5:00 PM</span>
+      <span class="t-item"><a href="mailto:contractpacificpainting@gmail.com"><i class="fa-regular fa-envelope"></i> contractpacificpainting@gmail.com</a></span>
+    </span>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a href="#/home" class="brand" onclick="closeMenu()">
+      <img src="https://pacificpaintingllc.com/wp-content/uploads/2026/09/Pacific-Painting-Logo-e1788376755319.png" alt="Pacific Painting LLC logo">
+      <div class="brand-name">
+        <strong>Pacific Painting LLC</strong>
+        <span>Salem, Oregon</span>
+      </div>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#/home" data-route="home" onclick="closeMenu()">Home</a>
+      <a href="#/about" data-route="about" onclick="closeMenu()">About Us</a>
+      <a href="#/services" data-route="services" onclick="closeMenu()">Services</a>
+      <a href="#/gallery" data-route="gallery" onclick="closeMenu()">Gallery</a>
+      <a href="#/contact" data-route="contact" onclick="closeMenu()">Contact Us</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:9718252256"><i class="fa-solid fa-phone"></i> 971-825-2256</a>
+      <a class="btn btn-primary btn-sm" href="#/contact">Get a Free Quote</a>
+      <button class="burger" id="burgerBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="https://pacificpaintingllc.com/wp-content/uploads/2026/09/Pacific-Painting-Logo-e1788376755319.png" alt="Pacific Painting LLC">
+          <strong>Pacific Painting LLC</strong>
+        </div>
+        <p>Professional painting, pressure washing and drywall repair — careful preparation, quality materials and lasting results for every property in Salem, OR.</p>
+        <div class="foot-social">
+          <a href="https://pacificpaintingllc.com/" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i></a>
+          <a href="tel:9718252256"><i class="fa-solid fa-phone"></i></a>
+          <a href="mailto:contractpacificpainting@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#/home">Home</a></li>
+          <li><a href="#/about">About Us</a></li>
+          <li><a href="#/services">Services</a></li>
+          <li><a href="#/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul id="footServiceLinks"></ul>
+      </div>
+      <div>
+        <h5>Contact Information</h5>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> &nbsp;4757 Lilac Ln NE, Salem, OR 97305</li>
+          <li><i class="fa-solid fa-phone"></i> &nbsp;<a href="tel:9718252256">971-825-2256</a></li>
+          <li><i class="fa-regular fa-envelope"></i> &nbsp;<a href="mailto:contractpacificpainting@gmail.com">contractpacificpainting@gmail.com</a></li>
+          <li><i class="fa-regular fa-clock"></i> &nbsp;Mon – Sat, 8:00 AM – 5:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© <span id="year"></span> Pacific Painting LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+/* =============================================================
+   DATA
+   ============================================================= */
+const SERVICES = [
+  {
+    slug:'painting-services',
+    name:'Painting Services',
+    short:'Careful preparation and skilled application for a smooth, professional finish on every surface.',
+    long:'Our core painting service covers walls, trim, ceilings and doors across residential and commercial properties. Every project starts with thorough surface prep — patching, sanding and masking — so the finish goes on evenly and lasts for years, not just months.',
+    image:'https://pacificpaintingllc.com/wp-content/uploads/elementor/thumbs/IMG_2186-scaled-rt4axj6vx0rh6xv145b35accm8q9jvjaytyjx5bg4w.jpeg',
+    icon:'fa-solid fa-paint-roller',
+    features:['Interior & exterior surfaces','Premium, low-odor paints','Full masking & drop-cloth protection','Two-coat coverage as standard','Clean daily job-site wrap-up']
+  },
+  {
+    slug:'exterior-painting',
+    name:'Exterior Painting',
+    short:'Weather-ready coatings that protect siding, trim and fences from Oregon\'s rain and sun.',
+    long:'Exterior surfaces take a beating from moisture, UV and temperature swings. We pressure-clean, scrape and prime every surface before applying durable, weather-resistant coatings that keep your home protected and looking sharp year-round.',
+    image:'https://pacificpaintingllc.com/wp-content/uploads/elementor/thumbs/IMG_2463-scaled-rt4ax1byb6312ckz0fl6bwulbx6ahmkekdkbsw1xf4.jpeg',
+    icon:'fa-solid fa-house-chimney',
+    features:['Siding, trim, decks & fences','Wash & scrape prep included','Weather- and UV-resistant coatings','Caulking of gaps and seams','Landscaping & walkway protection']
+  },
+  {
+    slug:'interior-painting',
+    name:'Interior Painting',
+    short:'Clean lines and smooth walls that refresh living rooms, kitchens, offices and hallways.',
+    long:'From single accent walls to whole-home repaints, our interior service is built around tidy, low-disruption work. Furniture and floors are fully protected, cut-lines are sharp, and we walk every room with you before we call the job done.',
+    image:'https://avatars.mds.yandex.net/i?id=0bec86dc139aeb16807d8cf126abc511acfd0641-7758299-images-thumbs&n=13',
+    icon:'fa-solid fa-brush',
+    features:['Whole-home & single-room repaints','Trim, doors and ceilings','Furniture & floor protection','Low-VOC paint options','Sharp, professional cut-lines']
+  },
+  {
+    slug:'pressure-washing',
+    name:'Pressure Washing',
+    short:'Deep cleaning that lifts dirt, mildew and buildup from siding, decks, driveways and walkways.',
+    long:'Grime and mildew shorten the life of paint and make a property look tired. Our pressure washing service resets siding, decks, concrete and fencing to a like-new appearance — and it\'s the essential first step before any exterior repaint.',
+    image:'https://pacificpaintingllc.com/wp-content/uploads/2026/09/pressure-washing-wooden-deck-surface-cleaning-2026-03-24-07-06-28-utc_11zon-2048x1365.jpg',
+    icon:'fa-solid fa-spray-can-sparkles',
+    features:['Siding, decks & driveways','Mildew & algae removal','Surface-safe pressure settings','Pre-paint surface preparation','Fences, patios & walkways']
+  },
+  {
+    slug:'drywall-repair',
+    name:'Drywall Repair',
+    short:'Cracks, holes and dents patched and sanded flush before your walls are ever primed.',
+    long:'Damaged drywall shows through even the best paint job. We repair holes, cracks and water damage, feather and sand every patch smooth, and match texture so repaired sections disappear once painted.',
+    image:'https://pacificpaintingllc.com/wp-content/uploads/elementor/thumbs/IMG_2687-scaled-rt4avxuqc4km7xwj3idqvkiq4ql56ifeq6lcbufqau.jpeg',
+    icon:'fa-solid fa-trowel',
+    features:['Holes, cracks & dents','Water-damage repair','Texture matching','Seam & corner repair','Sanded smooth, ready to prime']
+  }
+];
+
+const GALLERY = [
+  {img:'https://pacificpaintingllc.com/wp-content/uploads/2026/09/IMG_2711-scaled.jpeg', cap:'Exterior repaint — Salem, OR'},
+  {img:'https://pacificpaintingllc.com/wp-content/uploads/2026/09/IMG_2056-scaled.jpeg', cap:'Interior refresh'},
+  {img:'https://pacificpaintingllc.com/wp-content/uploads/2026/09/IMG_2715-scaled.jpeg', cap:'Trim & siding detail'},
+  {img:'https://pacificpaintingllc.com/wp-content/uploads/2026/09/IMG_2639-scaled.jpeg', cap:'Whole-property repaint'},
+  {img:'https://pacificpaintingllc.com/wp-content/uploads/2026/09/IMG_2771-scaled.jpeg', cap:'Completed project'},
+  {img:'https://pacificpaintingllc.com/wp-content/uploads/elementor/thumbs/IMG_2186-scaled-rt4axj6vx0rh6xv145b35accm8q9jvjaytyjx5bg4w.jpeg', cap:'Painting services'},
+  {img:'https://pacificpaintingllc.com/wp-content/uploads/elementor/thumbs/IMG_2463-scaled-rt4ax1byb6312ckz0fl6bwulbx6ahmkekdkbsw1xf4.jpeg', cap:'Exterior painting'},
+  {img:'https://pacificpaintingllc.com/wp-content/uploads/2026/09/pressure-washing-wooden-deck-surface-cleaning-2026-03-24-07-06-28-utc_11zon-2048x1365.jpg', cap:'Deck pressure washing'},
+  {img:'https://pacificpaintingllc.com/wp-content/uploads/elementor/thumbs/IMG_2687-scaled-rt4avxuqc4km7xwj3idqvkiq4ql56ifeq6lcbufqau.jpeg', cap:'Drywall repair, ready to prime'}
+];
+
+const REVIEWS = [
+  {name:'Maria Harthworthy', text:'Every crew member showed up on time, worked cleanly, and the final walls looked sharper than we expected. We\'d book them again without a second thought.'},
+  {name:'Christine J.', text:'From the first estimate to the last walk-through, everything felt organized and professional. Small details were handled without us having to ask twice.'},
+  {name:'John Henry', text:'They kept the site tidy the whole time and were genuinely friendly to have around the house. The finished rooms gave our home a completely new feel.'},
+  {name:'Brad Conner', text:'The attention to trim and edges really stood out — none of the sloppy lines we\'ve dealt with from other painters. Great value for the finished quality.'}
+];
+
+const FAQS = [
+  {q:'How long does a typical painting project take?', a:'Most single-room interior projects take one to two days, while full exterior repaints usually run three to five days depending on size, weather and prep needed. We give you a clear timeframe with your quote.'},
+  {q:'Do you provide free estimates?', a:'Yes. Call 971-825-2256 or use the contact form and we\'ll schedule a free, no-obligation walkthrough and quote for your property.'},
+  {q:'What areas do you serve?', a:'We\'re based in Salem, OR and serve homes and businesses throughout the surrounding area. Ask us when you reach out if you\'re just outside Salem.'},
+  {q:'Do I need to move my furniture before you start?', a:'No — our team fully protects furniture, floors and fixtures with drop cloths and masking before any work begins, and we can help shift larger pieces on request.'},
+  {q:'Can pressure washing be done before a repaint?', a:'Yes, and we recommend it. Pressure washing removes dirt, mildew and loose material so new paint adheres properly and lasts longer — we often bundle it with exterior jobs.'},
+  {q:'What paints and materials do you use?', a:'We use quality, durable paint lines suited to interior or exterior conditions, including low-VOC options on request, chosen for long-term color retention and coverage.'}
+];
+
+/* =============================================================
+   RENDER HELPERS
+   ============================================================= */
+function serviceBySlug(slug){ return SERVICES.find(s=>s.slug===slug); }
+
+function renderServiceCardHome(s){
+  return `<div class="svc-card">
+    <div class="thumb"><img src="${s.image}" alt="${s.name}" loading="lazy"></div>
+    <div class="body">
+      <h3>${s.name}</h3>
+      <p>${s.short}</p>
+      <a class="learn" href="#/service/${s.slug}">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>`;
+}
+
+function renderServiceListRow(s){
+  return `<div class="svc-list-card">
+    <div class="thumb"><img src="${s.image}" alt="${s.name}" loading="lazy"></div>
+    <div class="content">
+      <h3><i class="${s.icon}" style="color:var(--brass);font-size:.85em;margin-right:10px;"></i>${s.name}</h3>
+      <p>${s.short}</p>
+      <div class="actions">
+        <a class="btn btn-primary btn-sm" href="#/service/${s.slug}">View Details</a>
+        <a class="btn btn-outline btn-sm" href="#/contact">Book Now</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderReview(r){
+  const initials = r.name.split(' ').map(w=>w[0]).slice(0,2).join('');
+  return `<div class="review-card">
+    <div class="review-stars">★★★★★</div>
+    <p>"${r.text}"</p>
+    <div class="review-who">
+      <div class="review-avatar">${initials}</div>
+      <div><strong>${r.name}</strong><span>Google Review</span></div>
+    </div>
+  </div>`;
+}
+
+function renderFaq(f,i){
+  return `<div class="faq-item" id="faq-${i}">
+    <button class="faq-q" onclick="toggleFaq(${i})">${f.q} <i class="fa-solid fa-plus"></i></button>
+    <div class="faq-a"><p>${f.a}</p></div>
+  </div>`;
+}
+
+function toggleFaq(i){
+  document.getElementById('faq-'+i).classList.toggle('open');
+}
+
+/* =============================================================
+   PAGE TEMPLATES
+   ============================================================= */
+function pageHome(){
+  return `
+  <section class="page active" data-page="home">
+    <div class="hero">
+      <div class="hero-bg" style="--img:url('https://pacificpaintingllc.com/wp-content/uploads/2026/09/IMG_2711-scaled.jpeg')"></div>
+      <div class="wrap hero-inner">
+        <p class="kicker">Serving Salem, OR &amp; surrounding areas</p>
+        <h1>Professional Painting Services That Transform Your Space</h1>
+        <p class="lede">Pacific Painting LLC delivers interior and exterior painting, pressure washing and drywall repair — with careful preparation, quality materials and a clean, organized job site from start to finish.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#/contact">Get a Free Quote</a>
+          <a class="btn btn-outline" href="#/services">Explore Services</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>100%</strong><span>Careful Prep, Every Job</span></div>
+          <div><strong>6 Days</strong><span>Mon – Sat Availability</span></div>
+          <div><strong>4</strong><span>Core Property Services</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="wrap">
+        <div class="head-row">
+          <div>
+            <div class="divider"></div>
+            <h2>Quality Solutions Designed Around Your Property</h2>
+            <p class="lede">We combine careful preparation, quality materials and skilled workmanship to deliver clean, durable, professional results.</p>
+          </div>
+        </div>
+        <div class="grid-4">
+          ${SERVICES.map(renderServiceCardHome).join('')}
+        </div>
+        <div class="explore-wrap">
+          <a class="btn btn-primary" href="#/services"><i class="fa-solid fa-compass"></i> Explore Services</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section section-alt">
+      <div class="wrap">
+        <div class="divider center"></div>
+        <h2 style="text-align:center;">Professional Service. Quality Results. Customer Satisfaction.</h2>
+        <p class="lede center-lede">Pacific Painting LLC is committed to dependable painting and property-improvement work — clean workmanship, lasting results, and satisfaction on every project.</p>
+        <div style="height:40px;"></div>
+        <div class="feat-grid">
+          <div class="feat"><i class="fa-solid fa-user-check"></i><h4>Personalized Approach</h4><p>Every project is shaped around your property's needs, preferences and goals from start to finish.</p></div>
+          <div class="feat"><i class="fa-solid fa-layer-group"></i><h4>Thorough Surface Prep</h4><p>Careful preparation of every surface ensures a smooth, clean and lasting professional finish.</p></div>
+          <div class="feat"><i class="fa-solid fa-shield-heart"></i><h4>Respect for Your Property</h4><p>We work carefully to protect your home or business while keeping the job site clean and organized.</p></div>
+          <div class="feat"><i class="fa-solid fa-list-check"></i><h4>End-to-End Service</h4><p>From first prep to final touches, our team handles every step with consistent attention to detail.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="wrap">
+        <div class="divider center"></div>
+        <h2 style="text-align:center;">A Simple, Reliable Approach From Start to Finish</h2>
+        <div style="height:44px;"></div>
+        <div class="process-row">
+          <div class="process-step"><span class="num">01</span><h4>Consultation</h4><p>We discuss your project, understand your needs, and recommend the right solution for your property.</p></div>
+          <div class="process-step"><span class="num">02</span><h4>Preparation</h4><p>Surfaces are carefully prepped and imperfections repaired so the finish goes on smooth.</p></div>
+          <div class="process-step"><span class="num">03</span><h4>Professional Work</h4><p>Our team applies skilled workmanship with quality materials and close attention to detail.</p></div>
+          <div class="process-step"><span class="num">04</span><h4>Final Inspection</h4><p>We walk every job with you to confirm a clean finish and your full satisfaction.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section section-alt">
+      <div class="wrap">
+        <div class="divider center"></div>
+        <h2 style="text-align:center;">Trusted Service From Start to Finish</h2>
+        <p class="lede center-lede">What Salem-area customers say about working with our team.</p>
+        <div style="height:36px;"></div>
+        <div class="grid-4">
+          ${REVIEWS.map(renderReview).join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="wrap" style="max-width:800px;">
+        <div class="divider center"></div>
+        <h2 style="text-align:center;">Frequently Asked Questions</h2>
+        <p class="lede center-lede">Answers to what customers most often ask before booking.</p>
+        <div style="height:20px;"></div>
+        ${FAQS.map(renderFaq).join('')}
+      </div>
+    </div>
+
+    <div class="cta-band">
+      <div class="wrap">
+        <h2>Ready to Give Your Property a Fresh New Look?</h2>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#/contact">Get a Free Quote</a>
+          <a class="btn btn-outline" href="tel:9718252256"><i class="fa-solid fa-phone"></i> 971-825-2256</a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function pageAbout(){
+  return `
+  <section class="page active" data-page="about">
+    <div class="section about-hero">
+      <div class="wrap">
+        <div class="grid-2">
+          <div>
+            <div class="divider"></div>
+            <p class="kicker">About Pacific Painting LLC</p>
+            <h1>Why Choose Us</h1>
+            <p class="lede" style="font-size:1.05rem;">Pacific Painting LLC delivers professional painting services with careful preparation, quality materials and attention to detail — creating clean, smooth and lasting results for every project.</p>
+            <p>Our team provides reliable service for interior and exterior painting, pressure washing and drywall repair. We work carefully to protect your property and keep the workspace clean and organized from the first day to the last.</p>
+            <p>From initial preparation through final inspection, we prioritize quality workmanship and customer satisfaction — with the goal of improving your property's appearance and value.</p>
+            <div class="stat-row">
+              <div><strong>6</strong><span>Days a Week Open</span></div>
+              <div><strong>4</strong><span>Core Services</span></div>
+              <div><strong>Salem, OR</strong><span>Locally Based</span></div>
+            </div>
+          </div>
+          <div class="about-portrait">
+            <img src="https://pacificpaintingllc.com/wp-content/uploads/2026/09/IMG_2056-scaled.jpeg" alt="Pacific Painting LLC crew at work">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section section-alt">
+      <div class="wrap">
+        <div class="vm-block">
+          <div class="vm-cell">
+            <i class="fa-solid fa-compass"></i>
+            <h3>Our Vision</h3>
+            <p>To provide dependable painting and property-improvement services that enhance the appearance, comfort and value of every space we work on — building lasting customer relationships through quality workmanship and consistent service.</p>
+          </div>
+          <div class="vm-cell">
+            <i class="fa-solid fa-bullseye"></i>
+            <h3>Our Mission</h3>
+            <p>To deliver reliable painting and property-improvement services through quality workmanship, careful preparation and attention to detail — creating clean, lasting results and a positive experience for every customer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="wrap">
+        <div class="head-row">
+          <div>
+            <div class="divider"></div>
+            <h2>What Guides Our Work</h2>
+          </div>
+        </div>
+        <div class="values-strip">
+          <div><i class="fa-solid fa-layer-group"></i><h4>Detailed Preparation</h4><p>Every surface is prepared carefully for a smooth, lasting finish.</p></div>
+          <div><i class="fa-solid fa-magnifying-glass"></i><h4>Attention to Detail</h4><p>We focus on every detail to deliver clean, professional results.</p></div>
+          <div><i class="fa-solid fa-handshake"></i><h4>Reliable Service</h4><p>Dependable service and consistent workmanship on every project.</p></div>
+          <div><i class="fa-solid fa-droplet"></i><h4>Quality Materials</h4><p>We use quality materials for durable, attractive finishes.</p></div>
+          <div><i class="fa-solid fa-sliders"></i><h4>Customized Solutions</h4><p>Services tailored to your property's specific needs.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-band">
+      <div class="wrap">
+        <h2>Ready to Give Your Property a Fresh New Look?</h2>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#/contact">Get a Free Quote</a>
+          <a class="btn btn-outline" href="#/gallery">See Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function pageServices(){
+  return `
+  <section class="page active" data-page="services">
+    <div class="section" style="padding-top:64px;">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="#/home">Home</a> / Services</div>
+        <div class="divider"></div>
+        <h1>Our Services</h1>
+        <p class="lede">Pacific Painting LLC provides professional painting, pressure washing and drywall repair services to improve the look and condition of your property.</p>
+        <div style="height:34px;"></div>
+        ${SERVICES.map(renderServiceListRow).join('')}
+      </div>
+    </div>
+    <div class="cta-band">
+      <div class="wrap">
+        <h2>Not Sure Which Service You Need?</h2>
+        <p class="lede center-lede">Tell us about your property and we'll recommend the right combination of services.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#/contact">Get a Free Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function pageServiceDetail(slug){
+  const s = serviceBySlug(slug) || SERVICES[0];
+  const others = SERVICES.filter(x=>x.slug!==s.slug);
+  return `
+  <section class="page active" data-page="service-detail">
+    <div class="svc-detail-hero">
+      <div class="bg" style="--img:url('${s.image}')"></div>
+      <div class="wrap inner">
+        <div class="breadcrumb"><a href="#/home">Home</a> / <a href="#/services">Services</a> / ${s.name}</div>
+        <h1><i class="${s.icon}" style="color:var(--brass-light);margin-right:14px;"></i>${s.name}</h1>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="wrap">
+        <div class="grid-2">
+          <div>
+            <div class="divider"></div>
+            <h2>Overview</h2>
+            <p class="lede" style="font-size:1.02rem;">${s.long}</p>
+            <h3 style="margin-top:32px;font-size:1.15rem;">What's Included</h3>
+            <ul class="feature-list">
+              ${s.features.map(f=>`<li><i class="fa-solid fa-check"></i> ${f}</li>`).join('')}
+            </ul>
+            <div class="hero-actions" style="margin-top:30px;">
+              <a class="btn btn-primary" href="#/contact">Book Now</a>
+              <a class="btn btn-outline" href="tel:9718252256"><i class="fa-solid fa-phone"></i> Call 971-825-2256</a>
+            </div>
+          </div>
+          <div>
+            <div class="video-frame">
+              <video poster="${s.image}" controls preload="none" playsinline>
+                <!-- Add a real project clip for this service, e.g.: -->
+                <!-- <source src="videos/${s.slug}.mp4" type="video/mp4"> -->
+                Your browser does not support embedded video.
+              </video>
+            </div>
+            <p style="font-size:.8rem;color:var(--muted);margin-top:10px;">Project preview for ${s.name.toLowerCase()} — drop in a project walkthrough clip at <code>videos/${s.slug}.mp4</code>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section section-alt">
+      <div class="wrap">
+        <h3 style="font-size:1.1rem;margin-bottom:6px;">Explore Other Services</h3>
+        <div class="related-strip">
+          ${others.map(o=>`<a href="#/service/${o.slug}">${o.name}</a>`).join('')}
+          <a href="#/services" class="active">View All Services</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-band">
+      <div class="wrap">
+        <h2>Ready to Book ${s.name}?</h2>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#/contact">Get a Free Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function pageGallery(){
+  return `
+  <section class="page active" data-page="gallery">
+    <div class="section" style="padding-top:64px;">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="#/home">Home</a> / Gallery</div>
+        <div class="divider"></div>
+        <h1>Our Work</h1>
+        <p class="lede">A look at recent painting, pressure washing and drywall projects completed for Salem-area properties.</p>
+        <div style="height:30px;"></div>
+        <div class="gal-grid">
+          ${GALLERY.map(g=>`<figure onclick="openLightbox('${g.img}')"><img src="${g.img}" alt="${g.cap}" loading="lazy"><figcaption class="gal-cap">${g.cap}</figcaption></figure>`).join('')}
+        </div>
+      </div>
+    </div>
+    <div class="cta-band">
+      <div class="wrap">
+        <h2>Like What You See?</h2>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#/contact">Get a Free Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function pageContact(){
+  return `
+  <section class="page active" data-page="contact">
+    <div class="section" style="padding-top:64px;">
+      <div class="wrap">
+        <div class="breadcrumb"><a href="#/home">Home</a> / Contact Us</div>
+        <div class="divider"></div>
+        <h1>Contact Us</h1>
+        <p class="lede">Tell us about your project or call us directly — we're glad to help.</p>
+        <div style="height:30px;"></div>
+        <div class="contact-grid">
+          <div>
+            <div class="info-card">
+              <div class="info-line"><i class="fa-solid fa-location-dot"></i><div><strong>Address</strong><span>4757 Lilac Ln NE, Salem, OR 97305</span></div></div>
+              <div class="info-line"><i class="fa-solid fa-phone"></i><div><strong>Phone Number</strong><span><a href="tel:9718252256">971-825-2256</a></span></div></div>
+              <div class="info-line"><i class="fa-regular fa-envelope"></i><div><strong>Email Address</strong><span><a href="mailto:contractpacificpainting@gmail.com">contractpacificpainting@gmail.com</a></span></div></div>
+              <div class="info-line"><i class="fa-regular fa-clock"></i><div><strong>Working Hours</strong><span>Mon – Sat, 8:00 AM – 5:00 PM</span></div></div>
+            </div>
+            <div class="map-box">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d274719.40196068835!2d-123.00510294999998!3d45.07291705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ac985f790cf74b5%3A0x3c33ba33dce8a55!2sPacific%20Painting%20LLC!5e1!3m2!1sen!2s!4v1790355299903!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <h3 style="font-size:1.2rem;">Request a Free Quote</h3>
+            <form id="quoteForm" onsubmit="handleFormSubmit(event)">
+              <div class="form-row">
+                <div class="field"><label>Full Name</label><input type="text" required placeholder="Your name"></div>
+                <div class="field"><label>Phone</label><input type="tel" required placeholder="(xxx) xxx-xxxx"></div>
+              </div>
+              <div class="field"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+              <div class="field">
+                <label>Service Needed</label>
+                <select>
+                  ${SERVICES.map(s=>`<option>${s.name}</option>`).join('')}
+                  <option>Not Sure / Multiple Services</option>
+                </select>
+              </div>
+              <div class="field"><label>Project Details</label><textarea placeholder="Tell us about your property and timeline"></textarea></div>
+              <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;">Send Request</button>
+              <div class="form-msg" id="formMsg"><i class="fa-solid fa-circle-check"></i> Thanks — your request has been noted. We'll reach out shortly using the contact details you provided.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+/* =============================================================
+   ROUTER
+   ============================================================= */
+function render(){
+  const hash = location.hash || '#/home';
+  const parts = hash.replace('#/','').split('/');
+  const route = parts[0] || 'home';
+  const app = document.getElementById('app');
+  let html = '';
+
+  switch(route){
+    case 'about': html = pageAbout(); break;
+    case 'services': html = pageServices(); break;
+    case 'service': html = pageServiceDetail(parts[1]); break;
+    case 'gallery': html = pageGallery(); break;
+    case 'contact': html = pageContact(); break;
+    default: html = pageHome();
+  }
+
+  app.innerHTML = html;
+  window.scrollTo({top:0,behavior:'instant'in window ? 'instant' : 'auto'});
+
+  document.querySelectorAll('nav.main-nav a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.route === route || (route==='service' && a.dataset.route==='services'));
+  });
+}
+
+window.addEventListener('hashchange', render);
+window.addEventListener('DOMContentLoaded', ()=>{
+  render();
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('footServiceLinks').innerHTML = SERVICES.map(s=>`<li><a href="#/service/${s.slug}">${s.name}</a></li>`).join('');
+
+  setTimeout(()=>{document.getElementById('loader').classList.add('hide');}, 2000);
+
+  document.getElementById('burgerBtn').addEventListener('click', ()=>{
+    document.getElementById('mainNav').classList.toggle('open');
+  });
+});
+
+function closeMenu(){ document.getElementById('mainNav').classList.remove('open'); }
+
+function openLightbox(src){
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('show'); }
+
+function handleFormSubmit(e){
+  e.preventDefault();
+  document.getElementById('formMsg').classList.add('show');
+  e.target.reset();
+}
+</script>
+</body>
+</html>
